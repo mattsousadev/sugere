@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pytest
+pytest-env
+pytest-dotenv
+requests
+beautifulsoup4
+sqlalchemy
+psycopg2-binary

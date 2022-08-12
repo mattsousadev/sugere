@@ -1,0 +1,4 @@
+insert into public.nota(url) values ('http://sistemas.sefaz.am.gov.br/nfceweb/consultarNFCe.jsp?p=13220622991939001927650020003072531003581097|2|1|1|8DDB1748AA53F6CEC43D55D6FB08F77FF3F926DC');
+insert into public.nota(url) values ('http://sistemas.sefaz.am.gov.br/nfceweb/consultarNFCe.jsp?p=13220703488542000658656110000000391707687588|2|1|1|FEF64E8877006749DE063119A5C86DD451A9F6FF');
+insert into public.nota(url) values ('http://sistemas.sefaz.am.gov.br/nfceweb/consultarNFCe.jsp?p=13220834551382000244650080002112801080887403|2|1|1|0410904eb22a1a9e8e23c546e793519b0aada9bb');
+insert into public.nota(url) values ('http://sistemas.sefaz.am.gov.br/nfceweb/consultarNFCe.jsp?p=13220803488542000658656030000025131838097297|2|1|1|3ACA9F3D27860F69E13081A0580618CDCADE47A2');
