@@ -1,3 +1,4 @@
+from typing import List
 import requests
 import bs4 as bs
 from sqlalchemy.orm import Session
@@ -7,6 +8,9 @@ from schema.receipt import ReceiptSchema
 
 def getByUrl(session:Session, url: str) -> bool:
     return session.query(Nota).filter(Nota.url == url).all()
+
+def list_receipt(session:Session) -> List[Nota]:
+    return session.query(Nota).all()
 
 def insert_receipt(url: str, session:Session) -> Nota:
     notas_by_url = getByUrl(session, url)
