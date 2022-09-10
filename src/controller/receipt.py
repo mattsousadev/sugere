@@ -5,21 +5,22 @@ from sqlalchemy.orm import Session
 from core.db.tables import Nota, NotaItem
 from schema.receipt import ReceiptSchema
 
+def getByUrl(session:Session, url: str) -> bool:
+    return session.query(Nota).filter(Nota.url == url).all()
 
 def insert_receipt(url: str, session:Session) -> Nota:
-    try:
-        response = requests.get(url)
-        nota_model = Nota(url=url)
-        list_items = extract_items_from_html(response.text)
-        nota_model.relationship_item = list_items
-        session.add(nota_model)
-        session.add_all(list_items)
-        session.commit()
-        session.refresh(nota_model)
-        return nota_model
-    except Exception as e:
-        print(e)
-        raise Exception('Erro ao consultar url')
+    notas_by_url = getByUrl(session, url)
+    if(len(notas_by_url) > 0):
+        raise Exception('A url já foi cadastrada!')
+    response = requests.get(url)
+    nota_model = Nota(url=url)
+    list_items = extract_items_from_html(response.text)
+    nota_model.relationship_item = list_items
+    session.add(nota_model)
+    session.add_all(list_items)
+    session.commit()
+    session.refresh(nota_model)
+    return nota_model
 
 def extract_items_from_html(html_text: str) -> list[ReceiptSchema]:
     output = []
